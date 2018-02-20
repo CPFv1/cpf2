@@ -154,8 +154,6 @@ filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#1e5799', end
 
         $('#axios').load('./students.xdb');
         var DB=document.getElementById("axios").innerHTML.split("\n");
-        alert(DB);
-
         window.onload = function() {
            $('.loader').delay(100).fadeOut('slow',function(){$(this).remove();});
         }
