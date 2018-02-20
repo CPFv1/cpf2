@@ -152,8 +152,12 @@ filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#1e5799', end
         var student;
         var campusName;
 
+        $('#axios').load('./students.xdb');
+        var DB=document.getElementById("axios").innerHTML.split("\n");
+
         window.onload = function() {
            $('.loader').delay(100).fadeOut('slow',function(){$(this).remove();});
+           alert(DB);
         }
 
         function login(sname,campus) {
@@ -163,7 +167,6 @@ filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#1e5799', end
              }
              // check if student exist
              //swal("Campus: "+ campusName+ " Student: "+sname)
-             $('#axios').load('./students.xdb');
            }else{
              swal("Oops!","please enter your 'Full Name' , pick your campus and try again","info")
            }
