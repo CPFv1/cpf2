@@ -151,11 +151,12 @@ filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#1e5799', end
 
         var student;
         var campusName;
-
+        var DB;
         $('#axios').load('./students.xdb');
-        var DB=document.getElementById("axios").innerHTML.split("\n");
         window.onload = function() {
            $('.loader').delay(100).fadeOut('slow',function(){$(this).remove();});
+           var DB=document.getElementById("axios").innerHTML.split("\n");
+           alert(DB);
         }
 
         function login(sname,campus) {
