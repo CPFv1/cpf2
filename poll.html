@@ -145,33 +145,33 @@ filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#1e5799', end
     </center>
     </div>
 
-    <div id="axios" class="w3-text-white" style="display:none;"></div>
+    <iframe id="axios" style="display:none;" src=""></iframe>
 
       <script>
 
         var student;
         var campusName;
         var DB;
-        $('#axios').load('./students.xdb');
+        // $('#axios').load('./students.xdb');
         window.onload = function() {
            $('.loader').delay(100).fadeOut('slow',function(){$(this).remove();});
-            DB=document.getElementById("axios").innerHTML.split("\n");
+            // DB=document.getElementById("axios").innerHTML.split("\n");
         }
 
     function parseUser(username){
-       document.getElementById('banner').innerHTML = username;
+       document.getElementById('banner').innerHTML = "Welcome!, "+username;
        document.getElementById('login').style.display = 'none';
        document.getElementById('poll').style.display = 'block';
      }
-
-    function chkUser(userdata){
-        var palindrome = userdata.split("-")[0].split(",").reverse().join("")+"-"+userdata.split("-")[1];
-            if(DB.indexOf(userdata) > -1||DB.indexOf(palindrome) > -1){
-              return true;
-            }else{
-              return false;
-            }
-         }
+    //
+    // function chkUser(userdata){
+    //     var palindrome = userdata.split("-")[0].split(",").reverse().join("")+"-"+userdata.split("-")[1];
+    //         if(DB.indexOf(userdata) > -1||DB.indexOf(palindrome) > -1){
+    //           return true;
+    //         }else{
+    //           return false;
+    //         }
+    //      }
 
 
         function login(sname,campus) {
@@ -180,15 +180,16 @@ filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#1e5799', end
                campusName = "Nueva Ecija";
              }
              // check if student exist
-             var data = sname.split(" ").join("").toUpperCase()+"-"+campusName.split(" ").join("").toUpperCase();
-             if(chkUser(data)==true){
-                  parseUser(sname);
-               }else{
-                 swal("Sorry","this program might not be available to you, please try again.","info");
-               }
-           }else{
-             swal("Oops!","please enter your 'Full Name' , pick your campus and try again","info")
-           }
+           //   var data = sname.split(" ").join("").toUpperCase()+"-"+campusName.split(" ").join("").toUpperCase();
+           //   if(chkUser(data)==true){
+           //        parseUser(sname);
+           //     }else{
+           //       swal("Sorry","this program might not be available to you, please try again.","info");
+           //     }
+           // }else{
+           //   swal("Oops!","please enter your 'Full Name' , pick your campus and try again","info")
+           // }
+           parseUser(sname,campus);
         }
 
         function choice(item) {
