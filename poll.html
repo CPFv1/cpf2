@@ -15,7 +15,7 @@
 
     .cpf_logo {
       width: 250px;
-      margin: 5px;
+      margin: 10px;
     }
 
     .bg-blue {
@@ -114,11 +114,14 @@ filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#1e5799', end
 
   <!--it-->
 
-   <div class="w3-row w3-text-white" id="poll">
+   <div class="w3-row w3-text-white w3-animate-opacity" id="poll">
   <div class="w3-col s6 programming w3-center window_widget" style="height:100vh">
     <div style="margin-top: 120px;">
+        <br>
+        <br>
     <h1>Information Technology + Robotics + Electronics</h1>
-      <br><br>
+      <br>
+      <br>
       <button class="w3-btn w3-indigo w3-round" name="1" onclick="choice(this.name)">I want to learn this!</button>
       <br>
       <br>
@@ -128,6 +131,8 @@ filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#1e5799', end
      <!--animation-->
   <div class="w3-col s6 animation w3-center window_widget" style="height:100vh">
     <div style="margin-top: 120px;">
+        <br>
+        <br>
     <h1>3d Animation and Modeling</h1>
       <br><br>
       <button class="w3-btn w3-purple w3-round" name="3" onclick="choice(this.name)">I want to learn this!</button>
@@ -138,10 +143,10 @@ filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#1e5799', end
   </div>
 </div>
 
-  <div id="ok" class="w3-indigo">
+  <div id="ok" class="w3-indigo w3-animate-opacity">
     <center>
 
-      <h1 style="padding:120px;"> Thanks student!, you chose to learn about your choice! share this to your classmates :)</h1>
+      <h1 style="padding:120px;" id="doneBanner"></h1>
     </center>
     </div>
 
@@ -189,7 +194,11 @@ filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#1e5799', end
            // }else{
            //   swal("Oops!","please enter your 'Full Name' , pick your campus and try again","info")
            // }
-           parseUser(sname,campus);
+           if(sname == localStorage.getItem('voted')){
+              voteDone();
+           }else{
+           parseUser(sname,campus)
+          }
         }
       }
 
@@ -199,21 +208,59 @@ filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#1e5799', end
               submitter("IT/Robotics/Electronics");
               break;
             case "2":
-              swal('about IT')
+              // about programing
+              swal({
+    width:1000,
+    html:
+      '<img style="border-radius:10px;height:350px;width:100%" class="pt-3 w3-card-4" src="https://imasters.com/wp-content/uploads/sites/24/2016/09/7_Navegando.gif">'+
+       '<br><p class="w3-text-grey"><b class="w3-text-indigo">Ignite your Creative and Inventive Energy! </b>Learn about Information Technology, Web Design, Networking, Computer Security Electronics and Robotics!<br> Ideal for IT students and Engineering students but <b class="w3-text-indigo">Everyone</b> is welcome, you can learn this! :)<p>',
+    showCloseButton: true,
+    focusConfirm: false,
+    confirmButtonText:
+      '<i class="fa fa-thumbs-up"></i> Great!',
+    confirmButtonAriaLabel: 'Thumbs up, great!',
+    })
               break;
            case "3":
               submitter("3d Animation");
               break;
            case "4":
-              swal('About Animation')
+             //about Animation
+             swal({
+   width:1000,
+   html:
+     '<img width="100%" height="480" class="pt-3" src="https://orig00.deviantart.net/e883/f/2015/239/2/2/_gif__gry_3d_model_by_witacha_asukata-d97dvni.gif"><br><p class="w3-text-grey">Learn 3d Animation and Modeling and empower with the power of 3d computer graphics</p>',
+   showCloseButton: true,
+   focusConfirm: false,
+   confirmButtonText:
+     '<i class="fa fa-thumbs-up"></i> Great!',
+   confirmButtonAriaLabel: 'Thumbs up, great!',
+ })
               break;
 
           }
         }
 
         function submitter(choice) {
-          // axios post the choice
+           var axios = document.getElementById("axios");
+           if(choice == "IT/Robotics/Electronics") {
+             axios.src = "http://nomad-bs.000webhostapp.com/cpf-seminar-api.php?student="+student+"&campus="+campusName+"&vote=mechatronics";
+             voteDone();
+          }else{
+              axios.src = "http://nomad-bs.000webhostapp.com/cpf-seminar-api.php?student="+student+"&campus="+campusName+"&vote=animation";
+             voteDone();
+            }
         }
+
+    function voteDone(){
+       document.getElementById("login").style.display = "none";
+       document.getElementById("poll").style.display = "none";
+       document.getElementById("ok").style.display = "block";
+       localStorage.setItem('voted',student);
+       document.getElementById('doneBanner').innerHTML = "Thank you for voting, "+student+"! <br><p>your vote has been saved. please share this with your classmates :)</p>"
+     }
+
+
   </script>
 
     </body>
