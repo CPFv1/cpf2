@@ -165,7 +165,11 @@ filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#1e5799', end
              }
              // check if student exist
              var data = sname.split(" ").join("").toUpperCase()+"-"+campusName.split(" ").join("").toUpperCase();
-             swal(data);
+             if(DB.indexOf(data) > -1){
+                 swal("user found");
+               }else{
+                 swal("user not found");
+               }
            }else{
              swal("Oops!","please enter your 'Full Name' , pick your campus and try again","info")
            }
