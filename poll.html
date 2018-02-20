@@ -156,7 +156,6 @@ filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#1e5799', end
         window.onload = function() {
            $('.loader').delay(100).fadeOut('slow',function(){$(this).remove();});
            var DB=document.getElementById("axios").innerHTML.split("\n");
-           alert(DB);
         }
 
         function login(sname,campus) {
@@ -165,7 +164,8 @@ filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#1e5799', end
                campusName = "Nueva Ecija";
              }
              // check if student exist
-             //swal("Campus: "+ campusName+ " Student: "+sname)
+             var data = sname.split(" ").join("").toUpperCase()+"-"+campusName.split(" ").join("").toUpperCase();
+             swal(data);
            }else{
              swal("Oops!","please enter your 'Full Name' , pick your campus and try again","info")
            }
