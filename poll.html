@@ -158,6 +158,12 @@ filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#1e5799', end
             DB=document.getElementById("axios").innerHTML.split("\n");
         }
 
+    function parseUser(username){
+       document.getElementById('banner').innerHTML = username;
+       document.getElementById('login').style.display = 'none';
+       document.getElementById('poll').style.display = 'block';
+     }
+
     function chkUser(userdata){
         var palindrome = userdata.split("-")[0].split(",").reverse().join("")+"-"+userdata.split("-")[1];
             if(DB.indexOf(userdata) > -1||DB.indexOf(palindrome) > -1){
