@@ -158,6 +158,16 @@ filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#1e5799', end
             DB=document.getElementById("axios").innerHTML.split("\n");
         }
 
+    function chkUser(userdata){
+        var palindrome = userdata.split("-")[0].split(",").reverse().join("")+"-"+userdata.split("-")[1];
+            if(DB.indexOf(userdata) > -1||DB.indexOf(palindrome) > -1){
+              return true;
+            }else{
+              return false;
+            }
+         }
+
+
         function login(sname,campus) {
            if (sname&&campus){
              if(campus == "ne") {
@@ -166,7 +176,7 @@ filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#1e5799', end
              // check if student exist
              var data = sname.split(" ").join("").toUpperCase()+"-"+campusName.split(" ").join("").toUpperCase();
              if(chkUser(data)==true){
-                 logIn(sname);
+                  parseUser(sname);
                }else{
                  swal("Sorry","this program might not be available to you, please try again.","info");
                }
