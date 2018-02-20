@@ -1,0 +1,197 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width">
+   <link rel="stylesheet" href="https://www.w3schools.com/w3css/4/w3.css">
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/limonte-sweetalert2/7.12.9/sweetalert2.all.js"></script>
+  <script src="https://code.jquery.com/jquery-3.1.0.js"></script>
+  <title>CPF Seminar Poll</title>
+</head>
+  <style>
+    body {
+      background-color: black;
+    }
+
+    .cpf_logo {
+      width: 250px;
+      margin: 5px;
+    }
+
+    .bg-blue {
+      background: -moz-linear-gradient(top, rgba(30,87,153,1) 0%, rgba(125,185,232,0) 100%); /* FF3.6-15 */
+background: -webkit-linear-gradient(top, rgba(30,87,153,1) 0%,rgba(125,185,232,0) 100%); /* Chrome10-25,Safari5.1-6 */
+background: linear-gradient(to bottom, rgba(30,87,153,1) 0%,rgba(125,185,232,0) 100%); /* W3C, IE10+, FF16+, Chrome26+, Opera12+, Safari7+ */
+filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#1e5799', endColorstr='#007db9e8',GradientType=0 ); /* IE6-9 */
+    }
+
+    .programming {
+      background: linear-gradient(rgba(0, 0, 0, 255), rgba(0, 0, 0, 0.2)), url("http://i.imgur.com/62RS0C8.gif") fixed center center;
+    }
+
+    .animation {
+      /* https://media.giphy.com/media/A2MFkRZvpOHTy/giphy.gif */
+            background: linear-gradient(rgba(0, 0, 0, 0.1), rgba(0, 0, 0, 0.1)), url("https://media.giphy.com/media/A2MFkRZvpOHTy/giphy.gif");
+
+    }
+
+    .window_widget  {-moz-transition: all 0.3s;-webkit-transition: all 0.3s;transition: all 0.3s;}
+.window_widget:hover  {-moz-transform: scale(1.1);-webkit-transform: scale(1.1);transform: scale(1.1);cursor:pointer;}
+
+    #ok {
+      width: 100%;
+      height: 100vh;
+      display: none;
+    }
+
+
+    #login {
+      width: 100%;
+      height: 100vh;
+     background: linear-gradient(rgba(0, 0, 0, 255), rgba(0, 0, 0, 0.2)), url("https://www.splitshire.com/wp-content/uploads/2014/09/SplitShire_Blur_Background_XVI-1800x1200.jpg");
+
+    }
+
+    .bg-blur {
+      background-color: rgba(0,120,250,0.1);
+    }
+
+   #poll {
+ display:none;
+}
+
+.loader {
+	position: fixed;
+	left: 0px;
+	top: 0px;
+	width: 100%;
+	height: 100%;
+	z-index: 9999;
+	background-color:black;
+}
+  </style>
+<body>
+  <div class="loader">
+       <center>
+            <img src="loading.gif" style="margin-top:15%">
+       </center>
+  </div>
+
+  <div class="w3-top">
+    <div class="w3-bar bg-blue">
+<img src="https://centerforpositivefutures.github.io/cpf2/img/cpflogo.png" class="cpf_logo">
+      <h4 class="w3-bar-item w3-right w3-text-white w3-margin" id="banner">Welcome to the CPF Seminar Poll!</h4>
+    </div>
+    </div>
+   <div id="login" class="w3-text-white">
+    <br>
+     <br>
+     <br>
+     <br>
+    <center>
+      <div class="w3-round bg-blur w3-card-4" style="width:530px;">
+           <div class="w3-margin w3-padding">
+             <img src="https://centerforpositivefutures.github.io/cpf2/img/cpflogo.png" class="cpf_logo">
+             <hr>
+             <input id="student" class="w3-input w3-round w3-border" placeholder="Student Name:" onkeyup="student=this.value">
+             <br>
+             <p>Select your Campus:</p>
+             <div class="w3-padding">
+             <input type="radio" id="Montalban" onclick="campusName=this.id">
+             <label for="Montalban">CPF Montalban</label>
+             <input type="radio" id="Taguig" onclick="campusName=this.id">
+             <label for="Taguig">CPF Taguig</label>
+             <input type="radio" id="ne" onclick="campusName=this.id">
+             <label for="ne">CPF Nueva Ecija</label>
+             <br>
+             <br>
+             <br>
+             <button class="w3-indigo w3-btn w3-round" onclick="login(student,campusName)">Proceed</button>
+        </div>
+        <div>
+    </center>
+    </div>
+
+  <!--it-->
+
+   <div class="w3-row w3-text-white" id="poll">
+  <div class="w3-col s6 programming w3-center window_widget" style="height:100vh">
+    <div style="margin-top: 120px;">
+    <h1>Information Technology + Robotics + Electronics</h1>
+      <br><br>
+      <button class="w3-btn w3-indigo w3-round" name="1" onclick="choice(this.name)">I want to learn this!</button>
+      <br>
+      <br>
+      <button class="w3-btn w3-amber w3-round" name="2" onclick="choice(this.name)">what is this about?</button>
+    </div>
+     </div>
+     <!--animation-->
+  <div class="w3-col s6 animation w3-center window_widget" style="height:100vh">
+    <div style="margin-top: 120px;">
+    <h1>3d Animation and Modeling</h1>
+      <br><br>
+      <button class="w3-btn w3-purple w3-round" name="3" onclick="choice(this.name)">I want to learn this!</button>
+      <br>
+      <br>
+      <button class="w3-btn w3-amber w3-round" name="4" onclick="choice(this.name)">what is this about?</button>
+    </div>
+  </div>
+</div>
+
+  <div id="ok" class="w3-indigo">
+    <div id="axios" class="w3-text-white"></div>
+
+    <center>
+
+      <h1 style="padding:120px;"> Thanks student!, you chose to learn about your choice! share this to your classmates :)</h1>
+    </center>
+    </div>
+
+
+      <script>
+
+        var student;
+        var campusName;
+
+        window.onload = function() {
+           $('.loader').delay(100).fadeOut('slow',function(){$(this).remove();});
+        }
+
+        function login(sname,campus) {
+           if (sname&&campus){
+             if(campus == "ne") {
+               campusName = "Nueva Ecija";
+             }
+             // check if student exist
+             //swal("Campus: "+ campusName+ " Student: "+sname)
+             $('#axios').load('./students.xdb');
+           }else{
+             swal("Oops!","please enter your 'Full Name' , pick your campus and try again","info")
+           }
+        }
+
+        function choice(item) {
+          switch(item){
+            case "1":
+              submitter("IT/Robotics/Electronics");
+              break;
+            case "2":
+              swal('about IT')
+              break;
+           case "3":
+              submitter("3d Animation");
+              break;
+           case "4":
+              swal('About Animation')
+              break;
+
+          }
+        }
+
+        function submitter(choice) {
+          // axios post the choice
+        }
+  </script>
+
+    </body>
+</html>
