@@ -1,7 +1,7 @@
 /*CPF v2.css*/
 
-.red-tooltip + .tooltip > .tooltip-inner {background-color:blue;}
-.red-tooltip + .tooltip > .tooltip-arrow { border-bottom-color:blue; }
+.red-tooltip + .tooltip > .tooltip-inner {background-color:#3E8BE9;padding:10px;}
+.red-tooltip + .tooltip > .tooltip-arrow { border-bottom-color:#3E8BE9; }
 
 
 /*modals*/
