@@ -1,24 +1,24 @@
 {
   "files": {
-    "main.css": "./static/css/main.3c62dd61.chunk.css",
-    "main.js": "./static/js/main.ad860d13.chunk.js",
-    "main.js.map": "./static/js/main.ad860d13.chunk.js.map",
-    "runtime-main.js": "./static/js/runtime-main.8012acb5.js",
-    "runtime-main.js.map": "./static/js/runtime-main.8012acb5.js.map",
-    "static/js/2.3266cfe1.chunk.js": "./static/js/2.3266cfe1.chunk.js",
-    "static/js/2.3266cfe1.chunk.js.map": "./static/js/2.3266cfe1.chunk.js.map",
-    "index.html": "./index.html",
-    "precache-manifest.61ce486053e6cc7fddb4f7b250ba37f4.js": "./precache-manifest.61ce486053e6cc7fddb4f7b250ba37f4.js",
-    "service-worker.js": "./service-worker.js",
-    "static/css/main.3c62dd61.chunk.css.map": "./static/css/main.3c62dd61.chunk.css.map",
-    "static/js/2.3266cfe1.chunk.js.LICENSE.txt": "./static/js/2.3266cfe1.chunk.js.LICENSE.txt",
-    "static/media/style.scss": "./static/media/subscribe-bg.e21af197.jpg",
-    "static/media/cpf_trans.png": "./static/media/cpf_trans.73fd041b.png"
+    "main.css": "/cpf2/static/css/main.117d9b1a.chunk.css",
+    "main.js": "/cpf2/static/js/main.e97a7661.chunk.js",
+    "main.js.map": "/cpf2/static/js/main.e97a7661.chunk.js.map",
+    "runtime-main.js": "/cpf2/static/js/runtime-main.6854aaba.js",
+    "runtime-main.js.map": "/cpf2/static/js/runtime-main.6854aaba.js.map",
+    "static/js/2.3266cfe1.chunk.js": "/cpf2/static/js/2.3266cfe1.chunk.js",
+    "static/js/2.3266cfe1.chunk.js.map": "/cpf2/static/js/2.3266cfe1.chunk.js.map",
+    "index.html": "/cpf2/index.html",
+    "precache-manifest.05f04defd03593ffb71f514e68d7b8de.js": "/cpf2/precache-manifest.05f04defd03593ffb71f514e68d7b8de.js",
+    "service-worker.js": "/cpf2/service-worker.js",
+    "static/css/main.117d9b1a.chunk.css.map": "/cpf2/static/css/main.117d9b1a.chunk.css.map",
+    "static/js/2.3266cfe1.chunk.js.LICENSE.txt": "/cpf2/static/js/2.3266cfe1.chunk.js.LICENSE.txt",
+    "static/media/style.scss": "/cpf2/static/media/subscribe-bg.e21af197.jpg",
+    "static/media/cpf_trans.png": "/cpf2/static/media/cpf_trans.73fd041b.png"
   },
   "entrypoints": [
-    "static/js/runtime-main.8012acb5.js",
+    "static/js/runtime-main.6854aaba.js",
     "static/js/2.3266cfe1.chunk.js",
-    "static/css/main.3c62dd61.chunk.css",
-    "static/js/main.ad860d13.chunk.js"
+    "static/css/main.117d9b1a.chunk.css",
+    "static/js/main.e97a7661.chunk.js"
   ]
 }
